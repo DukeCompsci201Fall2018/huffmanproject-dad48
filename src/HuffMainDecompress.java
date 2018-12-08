@@ -5,9 +5,10 @@ public class HuffMainDecompress {
 	public static void main(String[] args) {
 		
 		System.out.println("Huffman Decompress Main");
-		
-		File inf = FileSelector.selectFile(hidden1.txt.hf);
-		File outf = FileSelector.saveFile(hidden1.txt);
+		String[] fileIn = {"mystery.tif.hf"};
+		String[] fileOut = {"mystery.tif"}; 
+		File inf = FileSelector.selectFile(fileIn);
+		File outf = FileSelector.saveFile(fileOut);
 		if (inf == null || outf == null) {
 			System.err.println("input or output file cancelled");
 			return;

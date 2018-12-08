@@ -82,7 +82,7 @@ public class HuffProcessor {
 			int value = in.readBits(BITS_PER_WORD + 1);
 			return new HuffNode(value, 0, null, null);
 		}
-		return new HuffNode(0,0,null,null);
+		//return new HuffNode(0,0,null,null);
 	}
 	
 	private void readCompressedBits(HuffNode root, BitInputStream in, BitOutputStream out) {
@@ -102,7 +102,7 @@ public class HuffProcessor {
 						break;
 					}else {
 						// write bits for current.value
-						out.write(current.myValue);
+						out.writeBits(BITS_PER_INT,current.myValue);
 						current = root;
 					}
 				}
