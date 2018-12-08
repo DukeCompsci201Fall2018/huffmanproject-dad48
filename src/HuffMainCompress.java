@@ -4,8 +4,11 @@ public class HuffMainCompress {
 	public static void main(String[] args) {
 		
 		System.out.println("Huffman Compress Main");
-		File inf = FileSelector.selectFile();
-		File outf = FileSelector.saveFile();
+		String[] fileIn = {"h1.txt"};
+		String[] fileOut = {"h1.txt.hf"};
+		
+		File inf = FileSelector.selectFile(fileIn);
+		File outf = FileSelector.saveFile(fileOut);
 		if (inf == null || outf == null) {
 			System.err.println("input or output file cancelled");
 			return;
