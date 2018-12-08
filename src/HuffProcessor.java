@@ -98,7 +98,7 @@ public class HuffProcessor {
 		if(root==null) {
 			return;
 		}
-		if(root.myValue > 0) {
+		if(root.myRight==null) {
 			encodings[root.myValue] = path;
 			return;
 		}
