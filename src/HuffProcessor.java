@@ -87,7 +87,31 @@ public class HuffProcessor {
 			return new HuffNode(value, 0, null, null);
 		}
 		return new HuffNode(0,0,null,null);
-		
+	}
+	
+	private void readCompressedBits(HuffNode root, BitInputStream in, BitOutputStream out) {
+		HuffNode current = root;
+		while(true) {
+			int bits = readBits(1);
+			if(bits==-1) {
+				throw new HuffException("bad input, no PSEUDO_EOF");
+			}else {
+				if(bits==0) {
+					current = current.myLeft;
+				}else {
+					current = current.myRight;
+				}
+				if(current.myValue != 0) {
+					if(current.myValue == PSEUDO_EOF) {
+						break;
+					}else {
+						// write bits for current.value
+						out.write(current.myValue);
+						current = root;
+					}
+				}
+			}
+		}
 	}
 	
 	
