@@ -6,8 +6,8 @@ public class HuffMainDecompress {
 		
 		System.out.println("Huffman Decompress Main");
 		
-		File inf = FileSelector.selectFile();
-		File outf = FileSelector.saveFile();
+		File inf = FileSelector.selectFile(hidden1.txt.hf);
+		File outf = FileSelector.saveFile(hidden1.txt);
 		if (inf == null || outf == null) {
 			System.err.println("input or output file cancelled");
 			return;
