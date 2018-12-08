@@ -168,13 +168,14 @@ public class HuffProcessor {
 			int bits = in.readBits(1);
 			if(bits==-1) {
 				throw new HuffException("bad input, no PSEUDO_EOF");
-			}else {
+			} 
+			else{
 				if(bits==0) {
 					current = current.myLeft;
 				}else {
 					current = current.myRight;
 				}
-				if(current.myValue != 0) {
+				if(current.myRight==null) {
 					if(current.myValue == PSEUDO_EOF) {
 						break;
 					}else {
@@ -182,8 +183,10 @@ public class HuffProcessor {
 						out.writeBits(BITS_PER_INT,current.myValue);
 						current = root;
 					}
+					
 				}
 			}
+			
 		}
 	}
 	
