@@ -163,6 +163,9 @@ public class HuffProcessor {
 			return new HuffNode(0,0,left,right);
 		}else {
 			int value = in.readBits(BITS_PER_WORD + 1);
+			/*if(myDebugLevel>0) {
+				System.out.println(value);
+			}*/
 			return new HuffNode(value, 0, null, null);
 		}
 		//return new HuffNode(0,0,null,null);
@@ -186,6 +189,9 @@ public class HuffProcessor {
 						break;
 					}else {
 						// write bits for current.value
+						if(myDebugLevel>0) {
+							System.out.println((char)(current.myValue));
+						}
 						out.writeBits(BITS_PER_INT,current.myValue);
 						current = root;
 					}
