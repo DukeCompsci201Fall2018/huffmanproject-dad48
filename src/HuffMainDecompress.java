@@ -5,8 +5,8 @@ public class HuffMainDecompress {
 	public static void main(String[] args) {
 		
 		System.out.println("Huffman Decompress Main");
-		String[] fileIn = {"hidden1.txt.hf"};
-		String[] fileOut = {"hidden1.txt"}; 
+		String[] fileIn = {"m1.tif.hf"};
+		String[] fileOut = {"m1D.tif"}; 
 		File inf = FileSelector.selectFile(fileIn);
 		File outf = FileSelector.saveFile(fileOut);
 		if (inf == null || outf == null) {
@@ -15,7 +15,7 @@ public class HuffMainDecompress {
 		}
 		BitInputStream bis = new BitInputStream(inf);
 		BitOutputStream bos = new BitOutputStream(outf);
-		HuffProcessor hp = new HuffProcessor(4);
+		HuffProcessor hp = new HuffProcessor();
 		hp.decompress(bis, bos);
 		System.out.printf("uncompress from %s to %s\n", 
 				           inf.getName(),outf.getName());		

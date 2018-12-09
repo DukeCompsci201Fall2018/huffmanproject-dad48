@@ -4,8 +4,8 @@ public class HuffMainCompress {
 	public static void main(String[] args) {
 		
 		System.out.println("Huffman Compress Main");
-		String[] fileIn = {"h1.txt"};
-		String[] fileOut = {"h1.txt.hf"};
+		String[] fileIn = {"m1.tif"};
+		String[] fileOut = {"m1.tif.hf"};
 		
 		File inf = FileSelector.selectFile(fileIn);
 		File outf = FileSelector.saveFile(fileOut);
@@ -15,7 +15,7 @@ public class HuffMainCompress {
 		}
 		BitInputStream bis = new BitInputStream(inf);
 		BitOutputStream bos = new BitOutputStream(outf);
-		HuffProcessor hp = new HuffProcessor();
+		HuffProcessor hp = new HuffProcessor(4);
 		hp.compress(bis, bos);
 		System.out.printf("compress from %s to %s\n", 
 		                   inf.getName(),outf.getName());

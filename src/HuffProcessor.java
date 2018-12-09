@@ -62,6 +62,9 @@ public class HuffProcessor {
 			if(val==-1) {
 				break;
 			}
+			/*if(myDebugLevel>0) {
+				System.out.println((char)val);
+			}*/
 			freq[val] += 1;
 		}
 		freq[PSEUDO_EOF] = 1;
@@ -130,6 +133,9 @@ public class HuffProcessor {
 			out.writeBits(code.length(), Integer.parseInt(code, 2));
 		}
 		String lastBit = encoding[PSEUDO_EOF];
+		if(myDebugLevel>0) {
+			System.out.println(lastBit);
+		}
 		out.writeBits(lastBit.length(), Integer.parseInt(lastBit, 2));
 	}
 	/**
