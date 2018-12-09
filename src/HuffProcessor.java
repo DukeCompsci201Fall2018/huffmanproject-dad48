@@ -192,7 +192,7 @@ public class HuffProcessor {
 						if(myDebugLevel>0) {
 							System.out.println((char)(current.myValue));
 						}
-						out.writeBits(BITS_PER_INT,current.myValue);
+						out.writeBits(BITS_PER_WORD,current.myValue);
 						current = root;
 					}
 					
